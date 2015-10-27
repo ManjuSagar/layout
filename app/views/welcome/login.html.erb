@@ -1,0 +1,147 @@
+
+<%= render 'header' %>
+
+<% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <% if current_user.user_type == 'SuperAdmin' %>
+
+    <% elsif current_user.user_type == 'Campaign' %>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="">
+              <div class="sidebar-nav">
+                <%= render 'grid_components' %>
+                <%= render 'basic_css_components' %>
+                <%= render 'components' %>
+                <%= render 'javascriprt_components' %>
+                <%= render 'custom_components' %>
+                <%= render 'video_components' %>
+              </div>
+            </div>
+            <div id="download-layout">
+              <div class="container-fluid"></div>
+            </div>
+            <div class="demo ui-sortable" style="min-height: 304px; ">
+              <div class="lyrow">
+                <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>remove</a>
+                <span class="drag label"><i class="icon-move"></i>drag</span>
+                <div class="preview">9 3</div>
+                <div class="view">
+                  <div class="row-fluid clearfix">
+                    <div class="span12 column ui-sortable">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/row-->
+        </div>
+    <% elsif current_user.user_type == 'Affiliator' %>
+        <%= render 'custom_components' %>
+        <div id="download-layout">
+          <div class="container-fluid"></div>
+        </div>
+        <div class="demo ui-sortable" style="min-height: 304px; ">
+          <div class="lyrow">
+            <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>remove</a>
+            <span class="drag label"><i class="icon-move"></i>drag</span>
+            <div class="preview">9 3</div>
+            <div class="view">
+              <div class="row-fluid clearfix">
+                <div class="span12 column ui-sortable">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!--/row-->
+        </div>
+
+    <% end %>
+            <!--/span-->
+            <!-- end demo -->
+            <!--/span-->
+
+        <!--/.fluid-container-->
+
+        <div class="modal hide fade" role="dialog" id="saveModal">
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Enter the Component Name</h3>
+          </div>
+          <div class="modal-body">
+            <p>
+            <p id="error-msg", style="display: none; color: red"> *Name Cannot be Blank!! </p>
+            <input id="save-name", required="true">
+            </input>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <a class="btn" id="save">Save</a>
+            <a class="btn" data-dismiss="modal">Close</a>
+          </div>
+        </div>
+
+
+        <div class="modal hide fade" role="dialog" id="editorModal">
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Editor</h3>
+          </div>
+          <div class="modal-body">
+            <p>
+              <textarea id="contenteditor"></textarea>
+            </p>
+          </div>
+          <div class="modal-footer"> <a id="savecontent" class="btn btn-primary" data-dismiss="modal">Save</a> <a class="btn" data-dismiss="modal">Cancel</a> </div>
+        </div>
+
+        <div class="modal hide fade" role="dialog" id="downloadModal">
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Download</h3>
+          </div>
+          <div class="modal-body">
+            <p>The .zip includes the directory structure, css, less and js.</p>
+            <div class="btn-group">
+              <button type="button" id="fluidPage" class="active btn btn-info"><i class="icon-fullscreen icon-white"></i> Full container View </button>
+              <button type="button" class="btn btn-info" id="fixedPage"><i class="icon-screenshot icon-white"></i> Responsive View </button>
+            </div>
+            <br>
+            <br>
+            <p>
+              <textarea></textarea>
+            </p>
+          </div>
+          <a class="btn" data-dismiss="modal" id="downloadhtmlzip">Download Zip</a>
+          <a class="btn" data-dismiss="modal" id="downloadhtml">Download Html</a>
+          <div class="modal-footer"> <a class="btn" data-dismiss="modal">Close</a> </div>
+        </div>
+
+
+        <div class="modal hide fade" role="dialog" id="shareModal">
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>保存</h3>
+          </div>
+          <div class="modal-body">保存成功</div>
+          <div class="modal-footer"> <a class="btn" data-dismiss="modal">Close</a> </div>
+        </div>
+
+
+<% end %>
+
+<!-- end of Header Bar-->
+<!--<script>-->
+<!--var _hmt = _hmt || [];-->
+<!--(function() {-->
+<!--var hm = document.createElement("script");-->
+<!--hm.src = "//hm.baidu.com/hm.js?5578a27c6c70bf44e7509eda26137f4c";-->
+<!--var s = document.getElementsByTagName("script")[0];-->
+<!--s.parentNode.insertBefore(hm, s);-->
+<!--})();-->
+<!--</script>-->

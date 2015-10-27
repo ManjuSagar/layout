@@ -1,0 +1,29 @@
+<html>
+<head>
+  <link rel="stylesheet" href="//releases.flowplayer.org/6.0.3/skin/minimalist.css">
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//releases.flowplayer.org/6.0.3/flowplayer.min.js"></script>
+  <!-- Include lines below to support multiple resolutions via quality selector plugin -->
+  <link rel="stylesheet" href="//flowplayer.org/drive/quality-selector.css">
+  <script src="//flowplayer.org/drive/quality-selector-v6.js"></script>
+  <title>Wow! This is video</title>
+
+</head>
+<body>
+<div class="flowplayer minimalist"
+     data-rtmp="rtmp://s3b78u0kbtx79q.cloudfront.net/cfx/st/"
+     data-ratio="0.4166666666666667"
+     data-qualities="160p,260p,530p,800p"
+     data-default-quality="260p">
+
+  <video>
+    <source type="application/x-mpegurl" src="//drive.flowplayer.org/202777/61311-bauhaus.m3u8">
+    <source type="video/webm" src="//drive.flowplayer.org/202777/61311-bauhaus.webm">
+    <source type="video/mp4" src="//drive.flowplayer.org/202777/61311-bauhaus.mp4">
+    <source type="video/flash" src="mp4:202777/61311-bauhaus.mp4">
+  </video>
+
+</div>
+
+</body>
+</html>

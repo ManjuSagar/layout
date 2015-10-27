@@ -1,0 +1,37 @@
+<div id="main" class='devise'>
+  <div class="container-fluid">
+    <div class="row">
+      <header class="text-center">
+        <h1><%= app_name %></h1>
+        <p class="p0 m0">Forgot your password?</p>
+      </header>
+    </div>
+
+  <div class="row mt20">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class=>"form-horizontal col-xs-12 col-md-6 col-md-offset-3", :id=>"new_user" }) do |f| %>
+        <div class="sheet form-sheet">
+          <div class="sheet-inner">
+            <div class="form-group">
+              <%= f.label :email, :class=>"form-label" %>
+              <%= f.email_field :email, autofocus: true, :id=>"user_email", :required=>"required", :pattern=>"[^@]+@[^@]+\.[a-zA-Z]{2,6}" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions pull-right">
+          <%= f.submit "Send me reset password instructions", :class=>"btn btn-outline-primary" %>
+        </div>
+    <% end %>
+  </div>
+   <br/>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text-center">
+        <div class="col-xs-12 col-md-4 sign-buttons text-center">
+          <a href="/users/sign_up"><small>Sign up</small></a>
+        </div>
+        <div class="col-xs-12 col-md-4 sign-buttons text-center">
+          <a href="/users/sign_in"><small>Sign in</small></a>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+

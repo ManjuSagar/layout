@@ -1,0 +1,18 @@
+<div class="custom box box-element ui-draggable">
+    <a href="#close" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i> remove</a>
+    <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> Drag</span>
+    <a href="#" class="preview"><%=@res.component_name %></a>
+    <div hidden id="component_id"><%=@res.id %></div>
+    <span class="editcomponent label label-default" onclick="openContainerWithSelectedComponent($(this).parent().closest('.box-element'))" id="editComponent"><i class="ion-edit"></i></span>
+    <span class="configuration">
+      <span class="btn-group btn-group-xs">
+        <button type="button" class="btn btn-default dropdown-toggle edit-button" title="Edit" onclick="openEditablePopup($(this).parent().closest('.box-element'))">Edit</button>
+      </span>
+    </span>
+    <div class="view change-class" id="custom-events">
+    <% comp = @res.component%>
+    <%f = File.read(comp.path) %>
+    <%= raw f %>
+    </div>
+</div>
+

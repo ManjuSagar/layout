@@ -1,0 +1,20 @@
+<div class="nav-side-menu">
+  <div class="navbar-header">
+    <div class="profile">
+      <%= random_avatar 60, "img-circle profile-image" %>
+      <div class="profile-body">
+        <% if user_signed_in? %>
+            <h4><%= current_user.first_name + current_user.last_name %></h4>
+        <% end %>
+
+        <div class="user-links">
+          <a class="btn btn-link btn-flat btn-xs btn-borderless" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Messages"><i class="fa fa-envelope"></i></a>
+          <a class="btn btn-link btn-flat btn-xs btn-borderless" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Profile"><i class="fa fa-user"></i></a>
+          <a class="btn btn-link btn-flat btn-xs btn-borderless" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Settings"><i class="fa fa-cog"></i></a>
+          <a class="btn btn-link btn-flat btn-xs btn-borderless" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Logout"><i class="fa fa-sign-out"></i></a>
+        </div>
+      </div>
+    </div>
+    <i class="navbar-toggle collapsed fa fa-bars" data-toggle="collapse" data-target="#menu-content"></i>
+  </div>
+</div>

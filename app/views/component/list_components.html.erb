@@ -1,0 +1,51 @@
+<%= render 'welcome/header' %>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="">
+      <div class="sidebar-nav">
+        <ul class="nav nav-list accordion-group">
+          <li class="nav-header"><i class="icon-plus icon-white"></i> Custom Components </li>
+          <li style="display: none;" class="boxes mute" id="elmComm">
+            <% @components.each do |c| %>
+                <%= render :partial => 'save_component', locals: {:@res => c} %>
+            <% end %>
+          </li>
+        </ul>
+
+      </div>
+      </div>
+    <div class="demo ui-sortable" style="min-height: 304px; ">
+      <div class="lyrow">
+        <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>remove</a>
+        <span class="drag label"><i class="icon-move"></i>drag</span>
+        <div class="preview">9 3</div>
+        <div class="view">
+          <div class="row-fluid clearfix">
+            <div class="span12 column ui-sortable">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+        <!--<ul class="nav nav-list accordion-group">-->
+        <!--<li class="nav-header"><i class="icon-plus icon-white"></i> 应用扩展 </li>-->
+        <!--<li style="display: none;" class="boxes mute" id="elmComm">-->
+        <!--<div class="preview">建设中...</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+    <!--&lt;!&ndash;/span&ndash;&gt;-->
+
+    <!--&lt;!&ndash; end demo &ndash;&gt;-->
+    <!--&lt;!&ndash;/span&ndash;&gt;-->
+    <!--<div id="download-layout">-->
+      <!--<div class="container-fluid"></div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--&lt;!&ndash;/row&ndash;&gt;-->
+<!--</div>-->
+<!--/.fluid-container-->

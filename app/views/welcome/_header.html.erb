@@ -1,0 +1,73 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="brand" href="http://localhost:3000/"><img src="/favicon.png"> Layout <span class="label">BETA</span></a>
+      <div class="nav-collapse collapse">
+        <ul class="nav" id="menu-layoutit">
+          <li class="divider-vertical"></li>
+          <li>
+            <div class="btn-group">
+              <!--<a class="btn btn-primary" href="http://justjavac.com" target="_blank"><i class="icon-home icon-white"></i>首页</a>-->
+            </div>
+            <div class="btn-group">
+
+              <% if user_signed_in? %>
+                  Signed in as <%= current_user.email %>. Not you?
+                  <% if current_user.user_type == 'SuperAdmin' %>
+                      <a class="btn btn-primary" href="/users/edit">EditProfile</a>
+                      <a class="btn btn-primary" href="/users/sign_out", data-method="delete">Sign Out</a>
+                      <a class="btn btn-primary" href="/new_user">Add Compaign</a>
+                      <a class="btn btn-primary" href="/compaigns_list">Compaign List</a>
+                      <a class="btn btn-primary" href="/component/list_components">Custom Components List</a>
+                  <% elsif current_user.user_type == 'Compaign' %>
+                      <a class="btn btn-primary" href="/users/edit">EditProfile</a>
+                      <a class="btn btn-primary" href="/users/sign_out", data-method="delete">Sign Out</a>
+                      <a class="btn btn-primary" href="/new_user">Add Affiliate</a>
+                      <a class="btn btn-primary" href="/affiliates_list">Affiliates List</a>
+                  <% elsif current_user.user_type == 'Affiliate' %>
+                      <a class="btn btn-primary" href="/users/edit">EditProfile</a>
+                      <a class="btn btn-primary" href="/users/sign_out", data-method="delete">Sign Out</a>
+                      <a class="btn btn-primary" href="/component/list_components">Custom Components List</a>
+                  <% end %>
+
+              <% else %>
+                  <a class="btn btn-primary" href="/users/sign_up">Register</a> or
+                  <a class="btn btn-primary" href="/users/sign_in">Login</a>
+              <% end %>
+
+            </div>
+            <% if user_signed_in? and current_user.user_type == 'Compaign' %>
+                <div class="btn-group" data-toggle="buttons-radio">
+                  <button type="button" id="edit" class="btn btn-primary active"><i class="icon-edit icon-white"></i>Edit</button>
+                  <button type="button" class="btn btn-primary" id="devpreview"><i class="icon-eye-close icon-white"></i>Preview</button>
+                  <button type="button" class="btn btn-primary" id="sourcepreview"><i class="icon-eye-open icon-white"></i>src Preview</button>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary" data-target="#downloadModal" rel="/build/downloadModal" role="button" data-toggle="modal"><i class="icon-chevron-down icon-white"></i>Download</button>
+                  <button class="btn btn-primary" href="/share1" role="button" data-toggle="modal" data-target="#shareModal"><i class="icon-share icon-white"></i>Share</button>
+                  <button class="btn btn-primary" href="#clear" id="clear"><i class="icon-trash icon-white"></i>Clear</button>
+                </div>
+                <div class="btn-group">
+                  <button class="btn btn-primary" href="#undo" id="undo" ><i class="icon-arrow-left icon-white"></i>Undo</button>
+                  <button class="btn btn-primary" href="#redo" id="redo" ><i class="icon-arrow-right icon-white"></i>Redo</button>
+                </div>
+                <div class="btn-group">
+                  <button class="btn btn-primary" href="#save" id="" data-target="#saveModal" data-toggle="modal">Save</button>
+                </div>
+            <% end %>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>
+            <div class="btn-group">
+              <span><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=justjavac&repo=layoutit&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe></span>
+              <span><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=justjavac&repo=layoutit&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="box box-element ui-draggable">
+    <a href="#close" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i> remove</a>
+    <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> drag</span>
+   <span class="configuration">
+       <span class="btn-group btn-group-xs">
+         <button type="button" class="btn btn-default dropdown-toggle edit-button" title="Edit" onclick="openEditablePopup($(this).closest('.box-element'))">Edit</button>
+       </span>
+    </span>
+    <a href="#" class="preview">Jw Player Video</a>
+    <div class="view change-class">
+        <script src="http://jwpsrv.com/library/PXWW0oQgEeOOWyIACi0I_Q.js"></script>
+        <div id='playerwnqZpIQLUFAE'></div>
+        <script>
+            jwplayer('playerwnqZpIQLUFAE').setup({
+                file: 'http://www.w3schools.com/tags/movie.mp4',
+                autostart: true
+//            image: 'https://www.longtailvideo.com/content/images/jw-player/lWMJeVvV-876.jpg',
+//            width: '100%',
+//            stretching : 'exactfit',
+//            aspectratio: '4:3',
+//            fallback: 'false',
+//            primary: 'HTML5',
+//            debug: true,
+//            events:{
+//                onBufferChange: function(callback) {
+//                    //  console.log(callback.buffer);
+//                    // console.log(jwplayer('playerwnqZpIQLUFAE').getBuffer());
+//                }
+//            }
+            });
+        </script>
+    </div>
+</div>

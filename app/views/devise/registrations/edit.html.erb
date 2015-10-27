@@ -1,0 +1,91 @@
+  <div id="main" class='devise'>
+    <div class="container-fluid">
+      <div class="row">
+        <header class="text-center">
+          <h1><%= app_name %></h1>
+          <p class="p0 m0">Your Account Detailes</p>
+        </header>
+      </div>
+  <% resource.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= fa_icon_tag "remove" %> <%= message %>
+      </div>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class=> "form-horizontal", :id=>"edit_user" }) do |f| %>
+      <div class="form-group ">
+        <%= f.label :email, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.email_field :email, autofocus: true, :class=>"form-control", :id=>"user_email" %>
+        </div>
+      </div>
+      <div class="form-group ">
+        <%= f.label :first_name, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :first_name, autofocus: true, :required=>"required", :class=>"form-control" %>
+        </div>
+      </div>
+      <div class="form-group ">
+        <%= f.label :last_name, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :last_name, autofocus: true, :required=>"required", :class=>"form-control" %>
+        </div>
+      </div>
+      <div class="form-group ">
+        <%= f.label :phone_number, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :phone_number, autofocus: true, :required=>"required", :class=>"form-control" %>
+        </div>
+      </div>
+      <div class="form-group ">
+        <%= f.label :address, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :address, autofocus: true, :required=>"required", :class=>"form-control"%>
+        </div>
+      </div>
+      <div class="form-group ">
+        <%= f.label :city, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_field :city, autofocus: true, :required=>"required", :class=>"form-control" %>
+        </div>
+      </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-group ">
+        <%= f.label :password, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.password_field :password, autocomplete: "off", :class=>"form-control", :id=>"user_password" %>
+        </div>
+      </div>
+      <div class="help-block col-md-offset-4 pl10">
+        Leave it blank if you don't want to change it.
+      </div>
+      <div class="form-group ">
+        <%= f.label :password_confirmation, :class=>"col-md-4 control-label"  %>
+        <div class="col-md-7">
+          <%= f.password_field :password_confirmation, autocomplete: "off", :class=> "form-control", :id=>"user_password_confirmation" %>
+        </div>
+      </div>
+
+      <div class="form-group ">
+        <%= f.label :current_password, :class=>"col-md-4 control-label" %>
+        <div class="col-md-7">
+          <%= f.password_field :current_password, autocomplete: "off", :class=>"form-control", :id=>"user_current_password" %>
+        </div>
+      </div>
+      <div class="help-block col-md-offset-4 pl10">
+        We need your current password to confirm your changes.
+      </div>
+
+      <div class="form-actions col-md-7 col-md-offset-4 pl10 mt20">
+        <%= button_tag(type: 'submit', class: "btn btn-primary btn-large btn-left") do %>
+            <i class="fa fa-edit"></i> Update
+        <% end %>
+        <%= link_to "Not now", root_path, :class=> "btn btn-outline-info" %>
+        <a class="pull-right text-red-400 pt10" onclick="return confirm('Are you sure?')" data-method="delete" href="/users" rel="nofollow">Cancel my account?</a>
+      </div>
+  <% end %>
+</div>
+</div>

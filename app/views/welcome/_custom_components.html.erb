@@ -1,0 +1,24 @@
+<div id="elmComm" >
+  <% type = (current_user.present? and current_user.user_type == 'Campaign') ? 'Editable' : 'NotEditable' %>
+  <% CustomComponent.components_scope(type).each do |c| %>
+    <%=(current_user.user_type == 'Campaign')? "<div class='custom box box-element'>".html_safe : "<div class='box box-element', onmouseover='ShowDef($(this))', onmouseout='HideDef()'>".html_safe %>
+    <a href="#close" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i> remove</a>
+    <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> Drag</span>
+    <a href="#" class="preview"><%=c.component_name %></a>
+    <div hidden id="component_id"><%=c.id %></div>
+    <% if current_user.user_type == 'Campaign'%>
+     <span class="editcomponent label label-default" onclick="openContainerWithSelectedComponent($(this).parent().closest('.box-element'))" id="editComponent"><i class="ion-edit"></i></span>
+      <span class="configuration">
+        <span class="btn-group btn-group-xs">
+          <button type="button" class="btn btn-default dropdown-toggle edit-button" title="Edit" onclick="openEditablePopup($(this).parent().closest('.box-element'))">Edit</button>
+        </span>
+      </span>
+    <% end %>
+    <div class="view change-class">
+      <% comp = c.component%>
+      <%f = File.read(comp.path) %>
+      <%= raw f %>
+    </div>
+    </div>
+<% end %>
+    </div>

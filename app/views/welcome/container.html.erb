@@ -1,0 +1,30 @@
+<div class="demo" style="padding: 10px 15px 0px 0px;background: #FFFFFF;">
+<% if current_user.present? and current_user.user_type == 'Campaign' %>
+      <div class="lyrow">
+        <a href="#close" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i> remove</a>
+        <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> drag</span>
+        <div class="preview">
+          <input value="6 6" type="text">
+        </div>
+        <div class="view" style="padding: 20px 5px 0px 0px" >
+          <div class="row-fluid clearfix">
+            <div class="col-md-6 column"></div>
+            <div class="col-md-6 column"></div>
+          </div>
+        </div>
+      </div>
+      <% else %>
+      <% if CustomComponent.where(user_id: User.current.id).present?%>
+          <%  cmp = CustomComponent.where(user_id: User.current.id, component_type: 'Editable').last %>
+            <div class="view" id="custom-events">
+              <%f = File.read(cmp.component.path) %>
+              <%= raw f %>
+            </div>
+      <%end%>
+<% end %>
+</div>
+
+<div id="messageBox">
+</div>
+
+

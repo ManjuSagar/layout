@@ -1,0 +1,13 @@
+<div class="demo" style="padding: 10px 15px 0px 0px;background: #FFFFFF;">
+  <% if current_user.present? and current_user.user_type == 'Campaign' %>
+      <%= @data %>
+  <% else %>
+      <% if CustomComponent.where(user_id: User.current.id).present?%>
+          <%  cmp = CustomComponent.where(user_id: User.current.id, component_type: 'Editable').last %>
+          <div class="view" id="custom-events">
+            <%f = File.read(cmp.component.path) %>
+            <%= raw f %>
+          </div>
+      <%end%>
+  <% end %>
+</div>

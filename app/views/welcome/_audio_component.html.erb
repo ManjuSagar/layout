@@ -1,0 +1,15 @@
+<div class="box box-element ui-draggable">
+  <a href="#close" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i> remove</a>
+  <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> drag</span>
+   <span class="configuration">
+       <span class="btn-group btn-group-xs">
+         <button type="button" class="btn btn-default dropdown-toggle edit-button" title="Edit" onclick="openEditablePopup($(this).closest('.box-element'))">Edit</button>
+       </span>
+    </span>
+  <a href="#" class="preview">Audio</a>
+  <div class="view change-class">
+    <div align="center">
+      <%= audio_tag "http://techslides.com/demos/sample-videos/small.mp4", :type => "mp4/audio", :controls => true, :autoplay => false %>
+    </div>
+  </div>
+</div>

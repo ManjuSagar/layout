@@ -1,0 +1,48 @@
+<%= render "layouts/flashes" %>
+<div class="page-header">
+  <div class="row row-same-height">
+    <div class="col-md-12 col-sm-height col-middle">
+      <h2 class="m0">Listing Brands</h2>
+    </div>
+    <div class="col-md-2 col-sm-height col-middle">
+      <a class="btn btn-primary btn-large pull-right" href="/campaigns/new">
+        <i class="fa fa-plus"></i> Add Brand
+      </a>
+    </div>
+  </div>
+</div>
+  <div id="content" class="col-md-12">
+    <div class="sheet sheet-condensed">
+      <div class="sheet-inner">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Admin First Name</th>
+            <th>Admin Last Name</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @campaigns.each do |campagin| %>
+          <tr>
+            <td><%=campagin.first_name %></td>
+            <td><%=campagin.last_name %></td>
+            <td><%=campagin.email %></td>
+            <td class="table-overflow"><%=campagin.name %></td>
+            <td>
+              <a href="edit/<%=campagin.id%>" rel="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td>
+              <a onclick="return confirm('Are you sure?')" data-method="delete" href="destroy/<%=campagin.id%>" rel="tooltip nofollow" title="Delete"><i class="fa fa-trash-o"></i></a>
+            </td>
+          </tr>
+           <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <%= will_paginate(@campaigns, :renderer => 'BootstrapPaginationHelper::LinkRenderer') %>
+  </div>
